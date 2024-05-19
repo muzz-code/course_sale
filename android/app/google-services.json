@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "47888282625",
+    "project_id": "ulearning-app-8a088",
+    "storage_bucket": "ulearning-app-8a088.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47888282625:android:910b412e97921ec9c07c00",
+        "android_client_info": {
+          "package_name": "com.dbestech.ulearningRiverpod.ulearning_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1H908rWN92ZPGccZFSU9UpDRIK7NUSbI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
