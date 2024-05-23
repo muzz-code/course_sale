@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
+import 'package:ulearning_app/global/global.dart';
 import 'package:ulearning_app/pages/sign_in/sign_in.dart';
 
 import '../../common/widgets/text_widgets.dart';
@@ -39,22 +41,17 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
         controller.animateToPage(index,
             duration: const Duration(milliseconds: 300), curve: Curves.linear);
       }else{
+        Global.storageService.setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME_KEY, true);
         Navigator.pushNamed (
           context,
           "/signIn",
         );
-       /* Navigator.push (
-          context,
-          MaterialPageRoute (
-            builder: (BuildContext context) => const SignIn(),
-          ),
-        );*/
       }
     },
     child: Container(
       width: 325.w,
       height: 50.h,
-      margin:  EdgeInsets.only(top: 100.h, left: 25.w, right: 25.w),
+      margin:  EdgeInsets.only(top: 40.h, left: 25.w, right: 25.w),
       decoration: appBoxShadow(),
       child: Center(child: text16Normal(text: index<3?"next":"Get started", color: Colors.white)),
     ),

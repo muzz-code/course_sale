@@ -2,18 +2,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/routes/routes.dart';
 import 'package:ulearning_app/common/utils/app_styles.dart';
 import 'package:ulearning_app/pages/sign_in/sign_in.dart';
 import 'package:ulearning_app/pages/sign_up/sign_up.dart';
 import 'package:ulearning_app/pages/welcome/welcome.dart';
 
-import 'firebase_options.dart';
+import 'global/global.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform
-  );
+  await Global.init();
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -24,21 +22,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 812),
+        designSize: const Size(375, 812),
         builder: (context, child) => MaterialApp(
               title: 'Flutter Demo',
               theme: AppTheme.appThemeData,
-              routes: {
-                "/":(context)=>Welcome(),
-                "/signIn":(context)=>const SignIn(),
-                "/register":(context)=>const SignUp(),
-              },
-
+              onGenerateRoute: (settings) =>
+                  AppPage.generateRouteSettings(settings),
             ));
   }
 }
-
-
 
 final appCount = StateProvider<int>((ref) {
   return 3;
@@ -56,7 +48,7 @@ class MyHomePage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text("Riverpod app"),
+        title: const Text("Riverpod app"),
       ),
       body: Center(
         child: Column(
@@ -72,18 +64,18 @@ class MyHomePage extends ConsumerWidget {
           ],
         ),
       ),
-      floatingActionButton:  Row(
+      floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           FloatingActionButton(
             heroTag: "one",
-            onPressed:()=>navRoute(),
+            onPressed: () => navRoute(),
             tooltip: 'Increment',
-            child: Icon(Icons.arrow_right_rounded),
+            child: const Icon(Icons.arrow_right_rounded),
           ),
           const FloatingActionButton(
             heroTag: "one",
-            onPressed:myTap,
+            onPressed: myTap,
             tooltip: 'Increment',
             child: Icon(Icons.arrow_right_rounded),
           ),
@@ -93,11 +85,11 @@ class MyHomePage extends ConsumerWidget {
   }
 }
 
-void myTap(){
+void myTap() {
   print("I am tapped");
 }
 
-void navRoute(){
+void navRoute() {
   //do what you like here
 }
 
