@@ -1,13 +1,10 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/common/routes/routes.dart';
 import 'package:ulearning_app/common/utils/app_styles.dart';
-import 'package:ulearning_app/pages/sign_in/sign_in.dart';
-import 'package:ulearning_app/pages/sign_up/sign_up.dart';
-import 'package:ulearning_app/pages/welcome/welcome.dart';
+import 'package:ulearning_app/splash.dart';
 
+import 'common/routes/router.dart';
 import 'global/global.dart';
 
 Future<void> main() async {
@@ -24,10 +21,10 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
         designSize: const Size(375, 812),
         builder: (context, child) => MaterialApp(
+              initialRoute: SplashScreens.routeName,
               title: 'Flutter Demo',
               theme: AppTheme.appThemeData,
-              onGenerateRoute: (settings) =>
-                  AppPage.generateRouteSettings(settings),
+              onGenerateRoute: Routers.generateRoute,
             ));
   }
 }
@@ -104,7 +101,7 @@ class SecondPage extends ConsumerWidget {
       body: Center(
         child: Text(
           "$count",
-          style: TextStyle(fontSize: 30),
+          style: const TextStyle(fontSize: 30),
         ),
       ),
     );
