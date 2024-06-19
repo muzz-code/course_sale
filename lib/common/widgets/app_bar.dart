@@ -10,7 +10,6 @@ import '../utils/app_colors.dart';
 
 AppBar buildAppbar({String title=""}) {
   return AppBar(
-
     bottom: PreferredSize(
       preferredSize: const Size.fromHeight(1),
       child: Container(

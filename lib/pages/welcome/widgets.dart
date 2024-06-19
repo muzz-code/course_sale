@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/global/global.dart';
-import 'package:ulearning_app/pages/sign_in/sign_in.dart';
 
 import '../../common/widgets/text_widgets.dart';
 

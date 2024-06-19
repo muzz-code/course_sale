@@ -12,4 +12,5 @@ class ImageRes {
   static const String foodie = "$_imageBase/food_image.png";
   static const String logo = "$_imageBase/logo_frame.png";
   static const String smaller_foodie = "$_imageBase/smaller_burger.png";
+  static const String welcome_faces = "$_imageBase/get_started_face_image.png";
 }

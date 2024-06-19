@@ -42,12 +42,19 @@ BoxDecoration appBoxShadowWithRadius(
       ]);
 }
 
-BoxDecoration appBoxDecorationTextField(
-    {Color color = AppColors.primaryBackground,
-    double radius = 15,
-    Color borderColor = AppColors.primaryFourthElementText}) {
+BoxDecoration appBoxDecorationTextField({
+  Color color = AppColors.primaryBackground,
+  double radius = 15,
+  bool? inputValidity,
+}) {
+  Color borderColor = (inputValidity ?? true)
+      ? AppColors.primaryFourthElementText
+      : AppColors.backgroundOrange;
+
   return BoxDecoration(
-      color: color,
-      borderRadius: BorderRadius.circular(radius),
-      border: Border.all(color: borderColor));
+    color: color,
+    borderRadius: BorderRadius.circular(radius),
+    border: Border.all(color: borderColor),
+  );
 }
+

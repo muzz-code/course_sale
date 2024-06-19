@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ulearning_app/features/sign_in/view/sign_in.dart';
+import 'package:ulearning_app/features/welcome/view/get_started.dart';
 
+import '../../features/auth/sign_in/view/sign_in.dart';
+import '../../features/auth/sign_up/view/sign_up.dart';
 import '../../splash.dart';
 
 class Routers {
@@ -14,6 +16,12 @@ class Routers {
 
       case SplashScreens.routeName:
         return MaterialPageRoute(builder: (_) => const SplashScreens());
+
+      case SignUp.routeName:
+        return MaterialPageRoute(builder: (_) => const SignUp());
+
+      case GetStartedScreen.routeName:
+        return MaterialPageRoute(builder: (_) => const GetStartedScreen());
 
       default:
         return MaterialPageRoute(

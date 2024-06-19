@@ -25,6 +25,10 @@ class AppColors {
   static const Color primaryElementStatus = Color.fromARGB(255, 88, 174, 127);
 
   static const Color primaryElementBg = Color.fromARGB(255, 238, 121, 99);
+  static const Color backgroundOrange = Color(0xffEF6D62);
+  static const Color buttonTextColor = Color(0xff344054);
+  static const Color hintTextColor = Color(0xff667085);
+  static const Color textHeaderColors = Color(0xff101828);
 
 
 }

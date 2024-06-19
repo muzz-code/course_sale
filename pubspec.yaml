@@ -62,16 +62,70 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  fonts:
+    - family: Raleway
+      fonts:
+        - asset: assets/fonts/Raleway-Regular.ttf
+        - asset: assets/fonts/Raleway-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Raleway-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Raleway-light.ttf
+          weight: 300
+
+    - family: GothamBold
+      fonts:
+        - asset: assets/fonts/GothamRounded-Bold.otf
+
+    - family: GothamBoldItalic
+      fonts:
+        - asset: assets/fonts/GothamRounded-BoldItalic.otf
+
+    - family: GothamBook
+      fonts:
+        - asset: assets/fonts/GothamRounded-Book.otf
+
+    - family: GothamBookItalic
+      fonts:
+        - asset: assets/fonts/GothamRounded-BookItalic.otf
+
+    - family: GothamLight
+      fonts:
+        - asset: assets/fonts/GothamRounded-Light.otf
+
+    - family: GothamLightItalic
+      fonts:
+        - asset: assets/fonts/GothamRounded-LightItalic.otf
+
+    - family: GothamMedium
+      fonts:
+        - asset: assets/fonts/GothamRounded-Medium.otf
+
+    - family: GothamMediumItalic
+      fonts:
+        - asset: assets/fonts/GothamRounded-MediumItalic.otf
+
+    - family: AppIcons
+      fonts:
+        - asset: assets/fonts/homeIcon.ttf
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/fonts/
+    #    - assets/images/fly.png
+    - assets/
+    - env/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  assets:
-    - assets/
-    - assets/images/
-    - assets/icons/
-    - assets/voice/
+#  assets:
+#    - assets/
+#    - assets/images/
+#    - assets/icons/
+#    - assets/voice/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

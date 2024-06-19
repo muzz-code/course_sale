@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'common/utils/image_res.dart';
-import 'features/sign_in/view/sign_in.dart';
+import 'features/welcome/view/get_started.dart';
 
 class SplashScreens extends StatefulWidget {
   static const routeName = '/SplashScreens';
@@ -21,7 +21,7 @@ class _SplashScreenStates extends State<SplashScreens> {
     //
     Timer(const Duration(seconds: 4), () {
       Navigator.of(context)
-          .pushNamedAndRemoveUntil(SignIn.routeName, (r) => false);
+          .pushNamedAndRemoveUntil(GetStartedScreen.routeName, (r) => false);
     });
 
     super.initState();

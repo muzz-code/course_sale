@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/pages/sign_up/notifier/register_notifier.dart';
 
 import 'app_shadow.dart';
 import 'image_widgets.dart';
@@ -14,6 +14,7 @@ Widget appTextField(
       bool obscureText = false,
       void Function(String value)? func,
       TextEditingController? controller,
+      bool? inputValidity
     }) {
   return Container(
     padding: EdgeInsets.only(left: 25.w, right: 25.w),
@@ -25,42 +26,40 @@ Widget appTextField(
         Container(
           width: 325.w,
           height: 50.h,
-          //color: Colors.red,
-          decoration: appBoxDecorationTextField(),
-          //row contains icon and textfield
+          decoration: appBoxDecorationTextField(inputValidity: inputValidity),
           child: Row(
             children: [
-              //for showing icons
               Container(
                 margin: EdgeInsets.only(left: 17.w),
                 child: appImage(imagePath: iconName),
               ),
-              //our text field
-              Container(
+              SizedBox(
                 width: 280.w,
                 height: 50.h,
-                child: TextField(
-                  controller: controller,
-                  onChanged: (value)=>func!(value),
-                  keyboardType: TextInputType.multiline,
-                  decoration: InputDecoration(
-                    hintText: hintText,
-                    border: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.transparent)),
-                    //default border without any input
-                    enabledBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.transparent)),
-                    //focused border is with input
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.transparent)),
-                    disabledBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.transparent)),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 18.0),
+                  child: TextField(
+                    controller: controller,
+                    onChanged: (value)=>func!(value),
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                      hintStyle: const TextStyle(color: AppColors.hintTextColor),
+                      hintText: hintText,
+                      border: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.transparent)),
+                      //default border without any input
+                      enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.transparent)),
+                      //focused border is with input
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.transparent)),
+                      disabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.transparent)),
+                    ),
+                    maxLines: 1,
+                    autocorrect: false,
+                    obscureText: obscureText,
                   ),
-
-                  maxLines: 1,
-                  autocorrect: false,
-                  //by defualt it's false
-                  obscureText: obscureText,
                 ),
               )
             ],

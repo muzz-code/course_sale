@@ -4,19 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widgets.dart';
-import 'package:ulearning_app/pages/sign_up/sign_up.dart';
 
-import 'app_bar.dart';
-
-Widget appButton({
-  double width = 325,
-  double height = 50,
-  String buttonName = "",
-  bool isLogin = true,
-  BuildContext? context,
-  void Function()? func
-}) {
+Widget appButton(
+    {double width = 325,
+    double height = 70,
+    String buttonName = "",
+    bool isLogin = true,
+    Color backgroundColor = Colors.white,
+    BuildContext? context,
+    Color? textColor,
+    void Function()? func}) {
   return GestureDetector(
     onTap: func,
     child: Container(
@@ -24,14 +21,13 @@ Widget appButton({
       height: height.h,
       //isLogin true then send primary color else send white color
       decoration: appBoxShadow(
-          color: isLogin ? AppColors.primaryElement : Colors.white,
+          radius: 40,
+          color: isLogin ? AppColors.primaryElement : backgroundColor,
           border: Border.all(color: AppColors.primaryFourthElementText)),
       child: Center(
           child: text16Normal(
               text: buttonName,
-              color: isLogin
-                  ? AppColors.primaryBackground
-                  : AppColors.primaryText)),
+              color: textColor ?? AppColors.backgroundOrange)),
     ),
   );
 }
