@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
-import 'package:ulearning_app/common/widgets/widgets.dart';
+import 'package:ulearning_app/common/widgets/bottom_tabs.dart';
 
 import '../../../common/utils/app_colors.dart';
 import '../provider/application_nav_notifier.dart';
@@ -19,7 +19,7 @@ class Application extends ConsumerWidget {
       color: Colors.white,
       child: Scaffold(
         body: Container(
-          child: appScreens(index),
+          child: appScreens(index: index),
         ),
         bottomNavigationBar: Container(
           width: 375.w,

@@ -1,0 +1,3 @@
+enum LogType{
+  ERROR,INFO
+}

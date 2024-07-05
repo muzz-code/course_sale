@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ulearning_app/features/home_page/view/dashboard.dart';
 import 'package:ulearning_app/features/welcome/view/get_started.dart';
 
 import '../../features/auth/sign_in/view/sign_in.dart';
@@ -22,6 +23,9 @@ class Routers {
 
       case GetStartedScreen.routeName:
         return MaterialPageRoute(builder: (_) => const GetStartedScreen());
+
+      case DashBoardScreen.routeName:
+        return MaterialPageRoute(builder: (_) => const DashBoardScreen());
 
       default:
         return MaterialPageRoute(

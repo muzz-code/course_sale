@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ulearning_app/common/global_loader/global_loader.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
+import 'package:ulearning_app/common/utils/extensionFunctions.dart';
 import 'package:ulearning_app/global/global.dart';
 import '../../../../common/widgets/popup_messages.dart';
 import '../entities/user.dart';
@@ -19,6 +20,29 @@ class LoginController {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  bool isEmailFieldValid = true;
+  bool isNameValid = true;
+  bool isPasswordValid = true;
+  bool isValidInputs = false;
+
+  validateFields(
+      {String? emailValue,
+        String? password}) {
+    var state = ref.read(loginNotifierProvider);
+    emailValue = state.email;
+    password = state.password;
+    emailController.text = emailValue;
+    passwordController.text = password;
+    bool isEmailValid = emailValue.isValidEmail();
+    if (emailValue.isNotEmpty) {
+      if (isEmailValid == true) {
+        isEmailFieldValid = true;
+      } else {
+        isEmailFieldValid = false;
+      }
+    }
+  }
 
   Future<void> login() async {
     var state = ref.read(loginNotifierProvider);
@@ -85,11 +109,7 @@ class LoginController {
           .setString(AppConstants.STORAGE_USER_PROFILE_KEY, '123');
       Global.storageService
           .setString(AppConstants.STORAGE_USER_TOKEN_KEY, '123456');
-      navigator.push(MaterialPageRoute(
-          builder: (BuildContext context) => Scaffold(
-                appBar: AppBar(),
-                body: Container(),
-              )));
+      navigator.pushNamed('/DashBoardScreen');
     } catch (e) {
       print('an error occurred');
     }

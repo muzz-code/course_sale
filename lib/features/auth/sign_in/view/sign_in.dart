@@ -8,12 +8,14 @@ import 'package:ulearning_app/common/widgets/text_widgets.dart';
 
 import '../../../../common/widgets/app_bar.dart';
 import '../../../../common/widgets/app_textfields.dart';
+import '../../../../common/widgets/popup_messages.dart';
 import '../controller/login_controller.dart';
 import '../provider/login_notifier.dart';
 import '../widgets/sign_in_widgets.dart';
 
 class SignIn extends ConsumerStatefulWidget {
   static const routeName = '/SignIn';
+
   const SignIn({Key? key}) : super(key: key);
 
   @override
@@ -27,6 +29,13 @@ class _SignInState extends ConsumerState<SignIn> {
   void initState() {
     _controller = LoginController(ref: ref);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    ref.read(loginNotifierProvider.notifier).resetState();
+    super.dispose();
   }
 
   @override
@@ -90,22 +99,26 @@ class _SignInState extends ConsumerState<SignIn> {
                       ),
                       //app login button
                       Center(
-                          child: appButton(
-                              buttonName: "Login",
-                              func:
-                                  () => _controller.login()
-                          )
+                        child: appButton(
+                            height: 54,
+                            buttonName: "Sign In",
+                            backgroundColor: AppColors.backgroundOrange,
+                            isLogin: false,
+                            context: context,
+                            textColor: Colors.white,
+                            func: () => _controller.login()),
                       ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
+                      SizedBox(height: 20.h),
                       Center(
-                          child: appButton(
-                              buttonName: "Register",
-                              isLogin: false,
-                              context: context,
-                              func: () =>
-                                  Navigator.pushNamed(context, "/register")))
+                        child: appButton(
+                          height: 54,
+                          buttonName: "Sign In with google",
+                          isLogin: false,
+                          context: context,
+                          textColor: AppColors.buttonTextColor,
+                          func: () => toastInfo("sign in with google"),
+                        ),
+                      ),
                       //app register button
                     ],
                   ),

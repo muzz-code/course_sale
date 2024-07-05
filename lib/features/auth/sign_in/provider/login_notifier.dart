@@ -11,6 +11,9 @@ class LoginNotifier extends StateNotifier<LoginState> {
   void onPasswordChange(String password) {
     state = state.copyWith(password: password);
   }
+  void resetState() {
+    state = const LoginState();
+  }
 }
 
 final loginNotifierProvider =

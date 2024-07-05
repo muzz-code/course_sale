@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/global_loader/global_loader.dart';
@@ -157,9 +158,14 @@ class _SignUpState extends ConsumerState<SignUp> {
                                   text: "Already have an account",
                                 ),
                                 SizedBox(width: 5.w),
-                                text14Normal(
-                                  text: "Log in",
-                                  color: AppColors.backgroundOrange,
+                                GestureDetector(
+                                  onTap: (){
+                                    Navigator.pushNamed(context, '/SignIn');
+                                  },
+                                  child: text14Normal(
+                                    text: "Log in",
+                                    color: AppColors.backgroundOrange,
+                                  ),
                                 ),
                               ],
                             ),
