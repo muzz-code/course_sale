@@ -22,41 +22,44 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundOrange,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 45.0, vertical: 30),
-                child: Image.asset(
-                  ImageRes.logo,
-                  fit: BoxFit.fitWidth,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 45.0, vertical: 30),
+                  child: Image.asset(
+                    ImageRes.logo,
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+                text50Bold(text: "Food for Everyone", color: Colors.white),
+              ],
+            ),
+            Image.asset(
+              ImageRes.landingPageFaces,
+              fit: BoxFit.fitWidth,
+            ),
+            SizedBox(
+              height: 20.h,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 28.0),
+              child: Center(
+                child: appButton(
+                  buttonName: "Get started",
+                  isLogin: false,
+                  context: context,
+                  textColor: AppColors.backgroundOrange,
+                  func: () => Navigator.pushNamed(context, "/SignUp"),
                 ),
               ),
-              text50Bold(text: "Food for Everyone", color: Colors.white),
-            ],
-          ),
-          Image.asset(
-            ImageRes.welcome_faces,
-            fit: BoxFit.fitWidth,
-          ),
-          SizedBox(
-            height: 20.h,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 28.0),
-            child: Center(
-                child: appButton(
-                    buttonName: "Get started",
-                    isLogin: false,
-                    context: context,
-                    textColor: AppColors.backgroundOrange,
-                    func: () => Navigator.pushNamed(context, "/SignUp"))),
-          )
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }

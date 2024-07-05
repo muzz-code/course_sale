@@ -13,4 +13,9 @@ class ImageRes {
   static const String logo = "$_imageBase/logo_frame.png";
   static const String smaller_foodie = "$_imageBase/smaller_burger.png";
   static const String welcome_faces = "$_imageBase/get_started_face_image.png";
+  static const String landingPageFaces = "$_imageBase/onboarding_img.png";
+  static const String orangeBackgroundIcon = "$_imageBase/orange_color_logo.png";
+  static const String whiteColorLogo = "$_imageBase/logo_white_img.png";
+  static const String bigBurgerImage = "$_imageBase/big_bugger_img.png";
+  static const String smallBurgerImage = "$_imageBase/small_burger_img.png";
 }

@@ -53,8 +53,10 @@ class _SplashScreenStates extends State<SplashScreens> {
                       children: [
                         Center(
                           child: Image.asset(
-                            ImageRes.logo,
+                            ImageRes.orangeBackgroundIcon,
                             fit: BoxFit.fitWidth,
+                            height: 100,
+                            width: 100,
                           ),
                         ),
                       ],
@@ -73,7 +75,7 @@ class _SplashScreenStates extends State<SplashScreens> {
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Image.asset(
-                        ImageRes.foodie,
+                        ImageRes.bigBurgerImage,
                         fit: BoxFit.fitWidth,
                       ),
                     ),
@@ -86,7 +88,7 @@ class _SplashScreenStates extends State<SplashScreens> {
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Image.asset(
-                        ImageRes.smaller_foodie,
+                        ImageRes.smallBurgerImage,
                         fit: BoxFit.fitWidth,
                       ),
                     ),
