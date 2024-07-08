@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../common/core/constants/colors.dart';
+import '../../../common/utils/image_res.dart';
 
 BoxDecoration appBoxShadow(
     {Color color = AppColors.primaryElement,
@@ -50,4 +51,33 @@ BoxDecoration appBoxDecorationTextField(
       color: color,
       borderRadius: BorderRadius.circular(radius),
       border: Border.all(color: borderColor));
+}
+
+class AppBoxDecorationImage extends StatelessWidget {
+  final double width;
+  final double height;
+  final String imagePath;
+
+  const AppBoxDecorationImage(
+      {Key? key,
+        this.width = 40,
+        this.height = 40,
+        this.imagePath = ImageRes.user})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      height: width,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fitHeight,
+            image: AssetImage(
+              imagePath,
+            ),
+          ),
+          borderRadius: BorderRadius.circular(20.w)),
+    );
+  }
 }

@@ -33,7 +33,7 @@ class CircularAvatarWidgetState extends ConsumerState<HomePageAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    final UserItem user = UserItem();
+    final UserProfile user = UserProfile();
 
     return Container(
       color: Colors.white,

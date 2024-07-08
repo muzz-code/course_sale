@@ -26,7 +26,7 @@ Widget appOnboardingPage(PageController controller,
       Container(
         margin:  EdgeInsets.only(top: 15.h),
         padding:  EdgeInsets.only(left: 30.w, right: 30.w),
-        child: text16Normal(text: subTitle),
+        child: Text16Normal(text: subTitle),
       ),
       _nextButton(index, controller, context)
     ],
@@ -52,7 +52,7 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
       height: 50.h,
       margin:  EdgeInsets.only(top: 40.h, left: 25.w, right: 25.w),
       decoration: appBoxShadow(),
-      child: Center(child: text16Normal(text: index<3?"next":"Get started", color: Colors.white)),
+      child: Center(child: Text16Normal(text: index<3?"next":"Get started", color: Colors.white)),
     ),
   );
 }

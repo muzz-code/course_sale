@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -102,12 +103,12 @@ class LoginController {
     ref.read(appLoaderProvider.notifier).setLoaderValue(false);
   }
 
-  void asyncPostAllData(LoginRequestEntity loginRequestEntity) {
+  void asyncPostAllData(LoginRequestEntity loginRequestEntity) async {
     try {
       var navigator = Navigator.of(ref.context);
-      Global.storageService
-          .setString(AppConstants.STORAGE_USER_PROFILE_KEY, '123');
-      Global.storageService
+      await Global.storageService
+          .setString(AppConstants.STORAGE_USER_PROFILE_KEY, jsonEncode(loginRequestEntity));
+      await Global.storageService
           .setString(AppConstants.STORAGE_USER_TOKEN_KEY, '123456');
       navigator.pushNamed('/DashBoardScreen');
     } catch (e) {
